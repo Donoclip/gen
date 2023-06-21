@@ -244,6 +244,7 @@ func pullRelationShip(cache map[string]bool, relationships []*schema.Relationshi
 				relationship.FieldSchema.Relationships.HasMany...),
 				relationship.FieldSchema.Relationships.Many2Many...),
 			)
+			cache[varType] = false
 		}
 		result[i] = *field.NewRelationWithType(field.RelationshipType(relationship.Type), relationship.Name, varType, childRelations...)
 	}
